@@ -15,8 +15,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the application
 COPY . .
 
+# Create uploads directory
+RUN mkdir -p static/uploads
+
 # Expose the port
 EXPOSE 5001
 
-# Run the application
-CMD ["python", "app.py"]
+# Run with gunicorn for better performance and larger request support
+CMD ["gunicorn", "--bind", "0.0.0.0:5001", "--timeout", "300", "--workers", "2", "--max-request-size", "52428800", "app:app"]

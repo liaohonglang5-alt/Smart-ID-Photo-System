@@ -6,3 +6,4 @@ torch==2.0.1
 torchvision==0.15.2
 rembg==2.0.50
 Werkzeug==2.3.7
+gunicorn==21.2.0
