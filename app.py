@@ -357,4 +357,5 @@ if __name__ == '__main__':
         print("正在预加载MODNet模型...")
         load_modnet_model()
     
-    app.run(debug=True, port=5001)
+    port = int(os.environ.get("PORT", 5001))
+    app.run(debug=False, host="0.0.0.0", port=port)
