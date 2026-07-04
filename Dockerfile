@@ -21,5 +21,5 @@ RUN mkdir -p static/uploads
 # Expose the port
 EXPOSE 5001
 
-# Run with gunicorn for better performance and larger request support
-CMD ["gunicorn", "--bind", "0.0.0.0:5001", "--timeout", "300", "--workers", "2", "--max-request-size", "52428800", "app:app"]
+# Run the application
+CMD ["python", "app.py"]
